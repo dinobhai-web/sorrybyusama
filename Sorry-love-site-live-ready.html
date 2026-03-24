@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For You ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.6), transparent 30%),
+        radial-gradient(circle at top right, rgba(255, 255, 255, 0.35), transparent 30%),
+        linear-gradient(135deg, #fff1f2 0%, #ffe4e6 30%, #fecdd3 60%, #fda4af 100%);
+      color: #881337;
+    }
+
+    .screen {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .bg-hearts span {
+      position: absolute;
+      color: rgba(225, 29, 72, 0.14);
+      font-size: clamp(24px, 4vw, 60px);
+      animation: float 6s ease-in-out infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .bg-hearts span:nth-child(1) { top: 8%; left: 8%; animation-delay: 0s; }
+    .bg-hearts span:nth-child(2) { top: 15%; right: 10%; animation-delay: 1.3s; }
+    .bg-hearts span:nth-child(3) { bottom: 10%; left: 12%; animation-delay: 2.2s; }
+    .bg-hearts span:nth-child(4) { bottom: 16%; right: 14%; animation-delay: 0.8s; }
+    .bg-hearts span:nth-child(5) { top: 42%; left: 5%; animation-delay: 1.8s; }
+    .bg-hearts span:nth-child(6) { top: 50%; right: 5%; animation-delay: 2.8s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-14px) scale(1.04); }
+    }
+
+    .phase {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      transform: scale(0.98);
+      pointer-events: none;
+      padding: 22px;
+    }
+
+    .show {
+      animation: fadeIn 0.9s ease forwards;
+    }
+
+    .hide {
+      animation: fadeOut 0.9s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.96) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: scale(1) translateY(0); }
+      to { opacity: 0; transform: scale(0.98) translateY(-10px); }
+    }
+
+    .love-font {
+      font-family: 'Great Vibes', cursive;
+      font-weight: 400;
+    }
+
+    .big-sorry {
+      font-size: clamp(84px, 22vw, 250px);
+      line-height: 0.9;
+      color: #be123c;
+      text-shadow: 0 12px 40px rgba(190, 24, 93, 0.22);
+    }
+
+    .mini-sorry {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(34px, 6vw, 72px);
+      color: #be123c;
+      text-shadow: 0 10px 30px rgba(190, 24, 93, 0.15);
+    }
+
+    .person-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .photo-box {
+    width: min(78vw, 280px);
+    aspect-ratio: 769 / 1386;
+    border-radius: 32px;
+    background: rgba(255, 255, 255, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    box-shadow: 0 20px 60px rgba(136, 19, 55, 0.16);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    }
+
+    .photo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    }
+
+    .life-line {
+      font-size: clamp(28px, 5vw, 58px);
+      font-weight: 700;
+      color: #9f1239;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .message {
+      max-width: 1050px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-weight: 600;
+      color: #881337;
+    }
+
+    .message.md { font-size: clamp(18px, 2.5vw, 32px); }
+    .message.lg { font-size: clamp(24px, 3vw, 42px); }
+    .message.xl {
+      font-size: clamp(18px, 2vw, 32px);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 800;
+      max-width: 1200px;
+    }
+
+    .final-wrap h1 {
+      font-size: clamp(64px, 11vw, 150px);
+      color: #be123c;
+      text-shadow: 0 12px 40px rgba(190, 24, 93, 0.18);
+      line-height: 0.95;
+    }
+
+    .final-wrap p {
+      margin-top: 14px;
+      font-size: clamp(24px, 4vw, 56px);
+      font-weight: 700;
+      color: #831843;
+    }
+
+    @media (max-width: 768px) {
+      .phase {
+        padding: 18px;
+      }
+
+      .mini-sorry {
+        top: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="screen">
+    <div class="bg-hearts" aria-hidden="true">
+      <span>❤️</span>
+      <span>💖</span>
+      <span>❤️</span>
+      <span>💘</span>
+      <span>💕</span>
+      <span>❤️</span>
+    </div>
+
+    <section class="phase" id="phase1">
+      <h1 class="love-font big-sorry">Sorry</h1>
+    </section>
+
+    <section class="phase" id="phase2">
+      <div class="mini-sorry love-font">Sorry</div>
+      <div class="person-wrap">
+        <div class="photo-box">
+          <!-- Replace the image path below with your own image file or URL -->
+          <img src="SORRY.png" alt="Your Image" />
+        </div>
+        <div class="life-line">you are my life <span style="color:#e11d48;">❤️</span></div>
+      </div>
+    </section>
+
+    <section class="phase" id="phase3">
+      <p class="message md">i trust you a lot but i am scared to loose you. apko lgta hai main shq kr raha pr apko mera drd nh dikh raha.</p>
+    </section>
+
+    <section class="phase" id="phase4">
+      <p class="message lg">i love you a lot kch b kr jao ga apke liye.</p>
+    </section>
+
+    <section class="phase" id="phase5">
+      <p class="message xl">MAIN APSE AYINDA KISI B CHEEZ SE RELATED QUESTION NH KRO GA APKO MERI PERMISSION KI B NEED NH, AP CHAHO JO WO KRLE MUJHE ALLAH KI QASAM APSE KOI B GILLA NAHI, APKE UPER H SB AP CHAHO TO SHAADI KRNA MUJHSE NH TO NH KRNA KISI B CHEEZ K LIYE FORCE NH KRO GA APKI LIFE AP APNE ACCORDING GUZARE ME APNI APKE ACCORDING GUZARNA PSND KRO GA, MUJHE KOI BACHA NH CHAYIYE APSE ESE HI DIL KIA POCHA</p>
+    </section>
+
+    <section class="phase" id="phase6">
+      <p class="message xl">AAP KO IJAZAT HAI JO CHUPANA CHAHO CHUPAO JISSE BAAT KRNI HAI AAP KRO MUJHE KOI GILLA NAHI HOGA KISI B BAAT KO LEKE</p>
+    </section>
+
+    <section class="phase" id="phase7">
+      <div style="max-width: 1150px; display: flex; flex-direction: column; gap: 20px; align-items: center;">
+        <p class="message lg">MENE APNI MOHBT APNA YAQEEN APNA BHAROSA APNI QISMAT APNA NASEEB ALLAH K USKE BAD APKE HAWALE KRDIYA</p>
+        <p class="message md">I AM REALLY SORRY FOR THESE TWO DAYS</p>
+        <p class="message md">I WILL CHANGE MY SELF AND CHANGE EVERYTHING THAT MADE YOU CRY AND HURT</p>
+      </div>
+    </section>
+
+    <section class="phase" id="phase8">
+      <div class="final-wrap">
+        <h1 class="love-font">I Love You A Lot</h1>
+        <p>I will miss you.</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const phaseIds = ['phase1', 'phase2', 'phase3', 'phase4', 'phase5', 'phase6', 'phase7', 'phase8'];
+    const timings = [3600, 5000, 5000, 3600, 9000, 10000, 8000, 999999];
+    const transitionDuration = 850;
+    let timeouts = [];
+
+    function clearAllTimers() {
+      timeouts.forEach((timeoutId) => clearTimeout(timeoutId));
+      timeouts = [];
+    }
+
+    function hideAll() {
+      phaseIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.classList.remove('show', 'hide');
+        el.style.opacity = '0';
+      });
+    }
+
+    function showPhase(index) {
+      const current = document.getElementById(phaseIds[index]);
+      if (!current) return;
+
+      current.classList.remove('hide');
+      current.style.opacity = '1';
+      current.classList.add('show');
+
+      if (index >= phaseIds.length - 1) {
+        return;
+      }
+
+      const duration = timings[index];
+      const hideTimer = setTimeout(() => {
+        current.classList.remove('show');
+        current.classList.add('hide');
+
+        const nextTimer = setTimeout(() => {
+          current.classList.remove('hide');
+          current.style.opacity = '0';
+          showPhase(index + 1);
+        }, transitionDuration);
+
+        timeouts.push(nextTimer);
+      }, duration);
+
+      timeouts.push(hideTimer);
+    }
+
+    function startSequence() {
+      clearAllTimers();
+      hideAll();
+      showPhase(0);
+    }
+
+    window.addEventListener('load', startSequence);
+
+    // Basic runtime checks for easier debugging.
+    console.assert(phaseIds.length === timings.length, 'phaseIds and timings must have the same length.');
+    console.assert(document.getElementById('phase1'), 'phase1 should exist.');
+    console.assert(document.getElementById('phase8'), 'phase8 should exist.');
+  </script>
+</body>
+</html>
